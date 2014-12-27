@@ -1,0 +1,29 @@
+<%
+//
+// THIS IS A TEMPLATE
+//
+%>{
+  "name": <%= JSON.stringify(moduleName) %>,
+  "version": "0.0.0",
+  "description": <%= JSON.stringify(description) || '""' %>,
+  "scripts": {
+    "test": "echo 'no tests have been written for this machinepack yet'"
+  },
+  "keywords": [
+    <%= JSON.stringify(friendlyName) || '""' %>,
+    "machines",
+    "machinepack"
+  ],
+  "author": <%= JSON.stringify(author) || '""' %>,
+  "license": "MIT",
+  "dependencies":{
+    "machine": "~1.0.0",
+    "hat": "0.0.3"
+  },
+  "machinepack": {
+    "friendlyName": <%= JSON.stringify(friendlyName) || '""' %>,
+    "machines":[
+      "say-hello"
+    ]
+  }
+}
