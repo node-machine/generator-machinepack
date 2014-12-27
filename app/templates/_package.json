@@ -7,7 +7,7 @@
   "version": "0.0.0",
   "description": <%= JSON.stringify(description) || '""' %>,
   "scripts": {
-    "test": "echo 'no tests have been written for this machinepack yet'"
+    "test": "echo 'No tests have been written for this machinepack yet'"
   },
   "keywords": [
     <%= JSON.stringify(friendlyName) || '""' %>,
@@ -17,8 +17,7 @@
   "author": <%= JSON.stringify(author) || '""' %>,
   "license": "MIT",
   "dependencies":{
-    "machine": "~1.0.0",
-    "hat": "0.0.3"
+    "machine": "~1.0.0"
   },
   "machinepack": {
     "friendlyName": <%= JSON.stringify(friendlyName) || '""' %>,
