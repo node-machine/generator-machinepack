@@ -22,6 +22,7 @@
   },
   "machinepack": {
     "friendlyName": <%= JSON.stringify(friendlyName) || '""' %>,
+    "machineDir": "machines/",
     "machines":[
       "say-hello"
     ]
