@@ -162,6 +162,14 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('.jshintrc')
       );
       this.fs.copy(
+        this.templatePath('gitignore'),
+        this.destinationPath('.gitignore')
+      );
+      this.fs.copy(
+        this.templatePath('npmignore'),
+        this.destinationPath('.npmignore')
+      );
+      this.fs.copy(
         this.templatePath('index.js'),
         this.destinationPath('index.js')
       );
