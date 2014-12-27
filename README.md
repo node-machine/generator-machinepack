@@ -1,7 +1,6 @@
-# generator-machinepack [![Build Status](https://secure.travis-ci.org/mikermcneil/generator-machinepack.png?branch=master)](https://travis-ci.org/mikermcneil/generator-machinepack)
+# generator-machinepack
 
 > [Yeoman](http://yeoman.io) generator
-
 
 ## Getting Started
 
@@ -35,12 +34,9 @@ Finally, initiate the generator:
 yo machinepack
 ```
 
-### Getting To Know Yeoman
+### Don't like yeoman?
 
-Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
-
-If you'd like to get to know Yeoman better and meet some of his friends, [Grunt](http://gruntjs.com) and [Bower](http://bower.io), check out the complete [Getting Started Guide](https://github.com/yeoman/yeoman/wiki/Getting-Started).
-
+Check out [`machinepack-boilerplate`](https://github.com/node-machine/machinepack-boilerplate) for a repo you can clone directly.
 
 ## License
 
