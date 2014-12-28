@@ -34,5 +34,5 @@ Documentation pages for the machines contained in this module are automatically 
 
 ### License
 
-MIT &copy; <%= typeof author !== 'undefined' ? author : 'contributors' %> <%= createdAt.getFullYear() %> and contributors
+MIT &copy; <%= createdAt.getFullYear() %> <%= typeof author !== 'undefined' ? author+' and ' : '' %>contributors
 
