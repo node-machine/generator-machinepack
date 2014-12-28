@@ -34,8 +34,6 @@ module.exports = yeoman.generators.Base.extend({
         done(new Error('Cancelled by user.'));
       },
       then: function(metadata) {
-        console.error('THEN', arguments);
-
         // Change the destination to `outputPath`
         if (metadata.outputPath !== self.destinationRoot()) {
           self.destinationRoot(metadata.outputPath);
