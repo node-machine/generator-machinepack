@@ -44,6 +44,17 @@ module.exports = yeoman.generators.Base.extend({
         _.extend(self, metadata);
 
         done();
+
+
+        // TODO: finish this:
+        //*****************************************************************************
+        // self.log(yosay('OK, almost done. Just a few more questions.'));
+
+        // promptAboutNewRepo(self.prompt, function (){
+        //   done();
+        // });
+        //*****************************************************************************
+
       }
     });
   },
@@ -108,3 +119,40 @@ module.exports = yeoman.generators.Base.extend({
     });
   }
 });
+
+
+
+
+
+
+//*****************************************************************************
+// * TODO: finish this
+//*****************************************************************************
+function promptAboutNewRepo (inquirer, done){
+
+  inquirer.prompt([{
+    name: 'createGithubRepo',
+    message: 'Want me to create a Github repo for you?',
+    type: 'confirm'
+  }], function (answers) {
+    if (!answers.createGithubRepo) {
+      return done();
+    }
+
+    inquirer.prompt([{
+      name: 'username',
+      type: 'input',
+      message: 'What\'s your GitHub username?'
+    }, {
+      name: 'password',
+      type: 'password',
+      message: 'What\'s your GitHub password?'
+    }], function (answers){
+
+      // TODO: create repo
+
+      done();
+    });
+  });
+}
+//*****************************************************************************
