@@ -7,7 +7,7 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 var _ = require('lodash');
 var Machinepacks = require('machinepack-machinepacks');
-
+var Path = require('path');
 
 
 
@@ -85,16 +85,22 @@ module.exports = yeoman.generators.Base.extend({
             // Setup the output path.
             var outputPath = answers.generateWhere;
 
+            var inCurrentDirectory;
+            if (outputPath === process.cwd()) {
+              inCurrentDirectory = true;
+            }
+
             // Change the destination to `outputPath`
             if (outputPath !== self.destinationRoot()) {
               self.destinationRoot(outputPath);
             }
 
-            if (answers.generateWhere !== process.cwd()) {
+
+            // If machinepack is to be generated within the current directory, ask user to confirm that
+            // she really wants to generate the machinepack files in the current dir.
+            if (!inCurrentDirectory) {
               return done();
             }
-
-            // Ask user to confirm that they really want to generate the machinepack in the current dir.
             self.prompt([
               {
                 type: 'confirm',
