@@ -27,7 +27,7 @@
     "chalk": "^0.5.0",
     "yosay": "^0.3.0",
     "lodash": "^2.4.1",
-    "machinepack-machinepacks": "^0.0.5"
+    "machinepack-machinepacks": "^0.1.0"
   },
   "devDependencies": {
     "mocha": "*"
