@@ -23,19 +23,27 @@ module.exports = yeoman.generators.Base.extend({
     var self = this;
 
     // Have Yeoman greet the user.
-    self.log('Welcome to the ' + chalk.blue('Machinepack') + ' generator!');
+    self.log(yosay('Welcome to the ' + chalk.blue('Machinepack') + ' generator!'));
 
     // Get machinepack metadata from user
-    Machinepacks.promptAboutNewMachinepack({
-      error: function (){ done(new Error('Unexpected error occurred.')); },
-      cancelled: function (){ done(new Error('Cancelled by user.')); },
-      then: function (metadata){
+    Machinepacks.promptAboutNewMachinepack().exec({
+      error: function() {
+        done(new Error('Unexpected error occurred.'));
+      },
+      cancelled: function() {
+        done(new Error('Cancelled by user.'));
+      },
+      then: function(metadata) {
+        console.error('THEN', arguments);
+
+        // Change the destination to `outputPath`
+        if (metadata.outputPath !== self.destinationRoot()) {
+          self.destinationRoot(metadata.outputPath);
+        }
+        delete metadata.outputPath;
 
         // Save metadata
         _.extend(self, metadata);
-
-        // Change the destination to `outputPath`
-        self.destinationRoot(metadata.outputPath);
 
         done();
       }
