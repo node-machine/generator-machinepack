@@ -34,11 +34,6 @@ module.exports = yeoman.generators.Base.extend({
         done(new Error('Cancelled by user.'));
       },
       then: function(metadata) {
-        // Change the destination to `outputPath`
-        if (metadata.outputPath !== self.destinationRoot()) {
-          self.destinationRoot(metadata.outputPath);
-        }
-        delete metadata.outputPath;
 
         // Save metadata
         _.extend(self, metadata);
@@ -58,10 +53,64 @@ module.exports = yeoman.generators.Base.extend({
           // self.log(yosay('OK, almost done. Just a few more questions.'));
 
           // promptAboutNewRepo(self.prompt, function (){
-          //   done();
+          //    ...
           // });
           //*****************************************************************************
-          done();
+
+          // Build `newFolderPath` in case user indicated a new folder should be generated.
+          var newFolderPath = Path.resolve(process.cwd(), metadata.moduleName);
+
+          self.prompt([
+            {
+              type: 'list',
+              name: 'generateWhere',
+              message: 'Where should this new machinepack be generated?',
+              choices: [
+                {
+                  name: 'In a new folder '+chalk.gray('('+newFolderPath+')'),
+                  value: newFolderPath
+                },
+                {
+                  name: 'Within the current directory '+chalk.gray('('+process.cwd()+')'),
+                  value: process.cwd()
+                },
+                // {
+                //   name: 'Somewhere else...',
+                //   value: undefined
+                // }
+              ]
+            }
+          ], function (answers){
+
+            // Setup the output path.
+            var outputPath = answers.generateWhere;
+
+            // Change the destination to `outputPath`
+            if (outputPath !== self.destinationRoot()) {
+              self.destinationRoot(outputPath);
+            }
+
+            if (answers.generateWhere !== process.cwd()) {
+              return done();
+            }
+
+            // Ask user to confirm that they really want to generate the machinepack in the current dir.
+            self.prompt([
+              {
+                type: 'confirm',
+                name: 'doubleCheck',
+                message: 'The new machinepack\'s files will be created within the current directory ('+process.cwd()+').\nIs that OK?',
+                default: true
+              }
+            ], function (answers){
+              if (answers.doubleCheck) {
+                return done();
+              }
+
+              return done(new Error('Cencelled'));
+            });
+
+          });
         });
       }
     });
