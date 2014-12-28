@@ -43,18 +43,26 @@ module.exports = yeoman.generators.Base.extend({
         // Save metadata
         _.extend(self, metadata);
 
-        done();
+        self.prompt([{
+          name: 'wantsExampleMachine',
+          message: 'Want me to create an example machine (`say-hello.js`) to help you get started?',
+          type: 'confirm',
+          default: false
+        }], function (answers) {
 
+          // Save answer
+          self.wantsExampleMachine = answers.wantsExampleMachine;
 
-        // TODO: finish this:
-        //*****************************************************************************
-        // self.log(yosay('OK, almost done. Just a few more questions.'));
+          // TODO: finish this:
+          //*****************************************************************************
+          // self.log(yosay('OK, almost done. Just a few more questions.'));
 
-        // promptAboutNewRepo(self.prompt, function (){
-        //   done();
-        // });
-        //*****************************************************************************
-
+          // promptAboutNewRepo(self.prompt, function (){
+          //   done();
+          // });
+          //*****************************************************************************
+          done();
+        });
       }
     });
   },
@@ -102,14 +110,23 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('index.js'),
         this.destinationPath('index.js')
       );
-      this.fs.copy(
-        this.templatePath('DELETE_THIS_FILE.md'),
-        this.destinationPath('DELETE_THIS_FILE.md')
-      );
-      this.fs.copy(
-        this.templatePath('machines/say-hello.js'),
-        this.destinationPath('machines/say-hello.js')
-      );
+
+      if (!this.wantsExampleMachine) {
+        this.fs.copy(
+          this.templatePath('machines/_gitkeep'),
+          this.destinationPath('machines/.gitkeep')
+        );
+      }
+      else {
+        this.fs.copy(
+          this.templatePath('machines/say-hello.js'),
+          this.destinationPath('machines/say-hello.js')
+        );
+        this.fs.copy(
+          this.templatePath('DELETE_THIS_FILE.md'),
+          this.destinationPath('DELETE_THIS_FILE.md')
+        );
+      }
     }
   },
 
