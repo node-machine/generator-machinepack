@@ -6,7 +6,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var _ = require('lodash');
-var Machinepacks = require('machinepack-machinepacks');
+var Machinepacks = require('machinepack-machines');
 var Path = require('path');
 
 
