@@ -7,7 +7,7 @@
   "version": "0.1.0",
   "description": <%= JSON.stringify(description) || '""' %>,
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha -b"
+    "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js"
   },
   "keywords": [
     <%= JSON.stringify(friendlyName) || '""' %>,
@@ -20,7 +20,7 @@
     "machine": "^3.0.0"
   },
   "devDependencies": {
-    "mocha": "^2.1.0"
+    "test-machinepack-mocha": "^0.2.2"
   },
   "machinepack": {
     "friendlyName": <%= JSON.stringify(friendlyName) || '""' %>,
