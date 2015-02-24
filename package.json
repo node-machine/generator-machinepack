@@ -4,7 +4,7 @@
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "mikermcneil/generator-machinepack",
+  "repository": "node-machine/generator-machinepack",
   "author": {
     "name": "Mike McNeil",
     "email": "customers@balderdash.co",
