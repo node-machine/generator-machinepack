@@ -6,7 +6,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var _ = require('lodash');
-var Machinepacks = require('machinepack-machines');
+var Machines = require('machinepack-machines');
 var Path = require('path');
 
 
@@ -26,7 +26,7 @@ module.exports = yeoman.generators.Base.extend({
     self.log(yosay('Welcome to the ' + chalk.blue('Machinepack') + ' generator!'));
 
     // Get machinepack metadata from user
-    Machinepacks.promptAboutNewMachinepack().exec({
+    Machines.promptAboutNewMachinepack().exec({
       error: function() {
         done(new Error('Unexpected error occurred.'));
       },
