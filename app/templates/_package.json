@@ -17,10 +17,10 @@
   "author": <%= JSON.stringify(author) || '""' %>,
   "license": "MIT",
   "dependencies":{
-    "machine": "^7.0.0"
+    "machine": "^9.0.0"
   },
   "devDependencies": {
-    "test-machinepack-mocha": "^0.2.4"
+    "test-machinepack-mocha": "^1.0.0"
   },
   "machinepack": {
     "friendlyName": <%= JSON.stringify(friendlyName) || '""' %>,
