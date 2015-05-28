@@ -28,12 +28,13 @@ module.exports = yeoman.generators.Base.extend({
     // Get machinepack metadata from user
     Machines.promptAboutNewMachinepack().exec({
       error: function(err) {
+        console.error('An error occurred: ',err);
         done(err);
       },
       cancelled: function() {
         done(new Error('Cancelled by user.'));
       },
-      then: function(metadata) {
+      success: function(metadata) {
 
         // Save metadata
         _.extend(self, metadata);
