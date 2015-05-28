@@ -27,8 +27,8 @@ module.exports = yeoman.generators.Base.extend({
 
     // Get machinepack metadata from user
     Machines.promptAboutNewMachinepack().exec({
-      error: function() {
-        done(new Error('Unexpected error occurred.'));
+      error: function(err) {
+        done(err);
       },
       cancelled: function() {
         done(new Error('Cancelled by user.'));
