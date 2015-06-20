@@ -1,13 +1,13 @@
 {
   "name": "generator-machinepack",
   "version": "1.0.3",
-  "description": "Yeoman generator",
+  "description": "Yeoman generator for machinepacks.",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "node-machine/generator-machinepack",
   "author": {
     "name": "Mike McNeil",
-    "email": "customers@balderdash.co",
+    "email": "support@treeline.io",
     "url": "https://github.com/mikermcneil"
   },
   "engines": {
@@ -20,7 +20,10 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "machinepack",
+    "generate-machinepack",
+    "treeline"
   ],
   "dependencies": {
     "chalk": "^0.5.0",
