@@ -6,6 +6,7 @@ var helpers = require('yeoman-generator').test;
 var os = require('os');
 
 describe('machinepack:app', function () {
+  this.timeout(30000);
   before(function (done) {
     helpers.run(path.join(__dirname, '../app'))
       .inDir(path.join(os.tmpdir(), './temp-test'))
@@ -18,7 +19,7 @@ describe('machinepack:app', function () {
 
   it('creates files', function () {
     assert.file([
-      'bower.json',
+      // 'bower.json',
       'package.json',
       '.editorconfig',
       '.jshintrc'

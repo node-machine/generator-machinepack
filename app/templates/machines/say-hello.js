@@ -19,8 +19,6 @@ module.exports = {
 
   },
 
-  defaultExit: 'success',
-
   exits: {
 
     error: {
@@ -28,7 +26,7 @@ module.exports = {
     },
 
     success: {
-      example:  {
+      example: {
         numLettersInName: 4,
         secretCode: "e9ec627220bc9e8ca66f916b7fba92f3"
       }
